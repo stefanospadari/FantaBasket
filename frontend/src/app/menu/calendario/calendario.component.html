@@ -1,7 +1,7 @@
 <div class="h3 p-2" routerLink=".." ><u>Back</u></div>
 <div class="h1 px-4">Calendario</div>
 <div class="p-3">
-    <app-barra [content]="giornata"></app-barra>
+    <app-barra [content]="giornata" (next)="nextGiornata($event)" (previous)="previousGiornata($event)" ></app-barra>
     <table class="table table-bordered border border-1 border-black">
     
         <tbody>

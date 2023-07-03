@@ -12,33 +12,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr routerLink="squadra">
-            <td>IngegneriadelSoftware</td>
-            <td class="text-center">3</td>
-            <td class="text-center">1</td>
-            <td >654.3</td>
-            <td class="fw-bold text-center">6</td>
-          </tr>
-          <tr>
-            <td>tutti30L</td>
-            <td class="text-center">2</td>
-            <td class="text-center">2</td>
-            <td>562.1</td>
-            <td class="fw-bold text-center">4</td>
-          </tr>
-          <tr>
-            <td>idisperati</td>
-            <td class="text-center">2</td>
-            <td class="text-center">2</td>
-            <td>557.8</td>
-            <td class="fw-bold text-center">4</td>
-          </tr>
-          <tr>
-            <td>idisperati</td>
-            <td class="text-center">1</td>
-            <td class="text-center">3</td>
-            <td>481.5</td>
-            <td class="fw-bold text-center">2</td>
+          <tr *ngFor="let s of squadre" routerLink="squadra/{{s.nome}}" >
+            <td>{{s.nome}}</td>
+            <td class="text-center">{{s.V}}</td>
+            <td class="text-center">{{s.P}}</td>
+            <td >{{s.sommaPunteggi}}</td>
+            <td class="fw-bold text-center">{{s.PC}}</td>
           </tr>
         </tbody>
       </table>

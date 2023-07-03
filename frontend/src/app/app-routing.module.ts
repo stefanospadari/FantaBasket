@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'home/formazioni', component: FormazioniComponent },
   { path: 'home/settings', component: SettingsComponent },
   { path: 'home/classifica/squadra', component: SquadraComponent },
+  { path: 'home/classifica/squadra/:nome', component: SquadraComponent },
 ];
 
 @NgModule({

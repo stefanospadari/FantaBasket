@@ -1,2 +1,14 @@
 <div class="h3 p-2" routerLink=".." ><u>Back</u></div>
-<div class="h1 px-4">Lista svincolati</div>
+<div class="h1 px-4 pt-1">Lista svincolati</div>
+<div class="px-5">
+    <input id="name" type="text" [formControl]="name">
+</div>
+
+<div class="p-4 pt-1">
+    <div id="giocatori" class="mt-3 m-3 border border-1 border-black" >
+        <div *ngFor="let g of svincolati">
+            <app-giocatore [nome]="g.nome" [ruolo]="g.ruolo"
+            *ngIf="show(g.nome)"></app-giocatore>
+        </div>
+    </div>
+</div>

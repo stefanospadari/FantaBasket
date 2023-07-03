@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,8 +19,6 @@ import { SquadraComponent } from './menu/classifica/squadra/squadra.component';
 import { BarraComponent } from './components/barra/barra.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,11 +33,12 @@ import { BarraComponent } from './components/barra/barra.component';
     SettingsComponent,
     GiocatoreComponent,
     SquadraComponent,
-    BarraComponent
+    BarraComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

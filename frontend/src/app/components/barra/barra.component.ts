@@ -7,17 +7,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class BarraComponent {
 
-  //@Output() next = new EventEmitter<string>();
-  //@Output() previous = new EventEmitter<string>();
+  @Output() next = new EventEmitter();
+  @Output() previous = new EventEmitter();
 
   onNext(){
     console.log("next");
-    //this.next.emit();
+    this.next.emit();
   }
 
   onPrevious(){
     console.log("previous");
-    //this.previous.emit();
+    this.previous.emit();
   }
 
   @Input() content="";

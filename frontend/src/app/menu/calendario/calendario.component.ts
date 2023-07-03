@@ -13,14 +13,16 @@ export class CalendarioComponent {
     this.giornata="Giornata 1"
   }
 
-  nextGiornata(){
-    let g=  (this.giornata.charAt(this.giornata.length) as unknown) as number;
+  nextGiornata(event: Event){
+    let g=  (this.giornata.charAt(this.giornata.length -1) as unknown as number);
+    console.log(g);
     g++;
     this.giornata="Giornata "+g;
+    console.log(this.giornata);
   }
 
-  previousGiornata(){
-    let g=  (this.giornata.charAt(this.giornata.length) as unknown) as number;
+  previousGiornata(event : Event){
+    let g=  (this.giornata.charAt(this.giornata.length -1) as unknown) as number;
     if(g>1){
       g--;
       this.giornata="Giornata "+g;
