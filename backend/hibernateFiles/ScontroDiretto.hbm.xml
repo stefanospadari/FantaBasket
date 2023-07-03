@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.ScontroDiretto" table="scontridiretti">
+    <id name="id" column="idscontrodiretto"/>
+    <property name="punteggioCasa" column="punteggiocasa"/>
+    <property name="punteggioOspite" column="punteggioospite"/>
+    <property name="malusCasa" column="maluscasa"/>
+    <property name="malusOspite" column="malusospite"/>
+    <many-to-one name="giornata" class="model.Giornata" fetch="select">
+    	<column name="idgiornata"></column>
+    </many-to-one>
+    <many-to-one name="formazioneCasa" class="model.Formazione" fetch="select">
+    	<column name="idformazionecasa"></column>
+    </many-to-one>
+    <many-to-one name="formazioneOspite" class="model.Formazione" fetch="select">
+    	<column name="idformazioneospite"></column>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

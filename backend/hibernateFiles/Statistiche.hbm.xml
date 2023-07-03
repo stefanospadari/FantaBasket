@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.Statistiche" table="statistiche">
+    <id name="id" column="idstatistica" />
+    <property name="punti" column="punti"/>
+    <property name="rimbalziDifensivi" column="rimbalzidifensivi"/>
+    <property name="rimbalziOffensivi" column="rimbalziOffensivi"/>
+    <property name="assist" column="assist"/>
+    <property name="palleRecuperate" column="pallerecuperate"/>
+    <property name="stoppate" column="stoppate"/>
+    <property name="tiriSbagliati" column="tirisbagliati"/>
+    <property name="tiriLiberiSbagliati" column="tiriliberisbagliati"/>
+    <property name="falli" column="falli"/>
+    <property name="pallePerse" column="palleperse"/>
+    <property name="triple" column="triple"/>
+    <property name="quintettoBase" column="quintettobase"/>
+    <property name="vittoriaSquadra" column="vittoriasquadra"/>
+    <many-to-one name="partita" class="model.Partita" fetch="select">
+    	<column name="idpartita"></column>
+    </many-to-one>
+    <many-to-one name="giocatore" class="model.Giocatore" fetch="select">
+    	<column name="idgiocatore"></column>
+    </many-to-one>     
+  </class>
+</hibernate-mapping>

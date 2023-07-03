@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.Lega" table="leghe">
+    <id name="id" column="idlega"/>
+    <property name="nome" column="nome"/>
+    <many-to-one name="amministratoreLega" column="amministratoredilega" unique="true" class="model.Utente"/>
+    <one-to-one name="pesiStatistiche" class="model.PesiStatistiche"></one-to-one>
+    <set name="squadre" table="squadre" lazy="false" fetch="select">
+    <key><column name="idLega"/></key>
+    <one-to-many class="model.Squadra"></one-to-many>
+    </set>
+  </class>
+</hibernate-mapping>

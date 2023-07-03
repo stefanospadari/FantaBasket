@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.Squadra" table="squadre">
+    <id name="id" column="idsquadra"/>
+    <property name="puntiClassifica" column="puntiClassifica"/>
+    <property name="partiteVinte" column="partiteVinte"/>
+    <property name="partitePerse" column="partitePerse"/>
+    <property name="sommaPunteggi" column="sommaPunteggi"/>
+    <property name="nome" column="nome"/>
+    <many-to-one name="allenatore" column="allenatore" unique="true" class="model.Utente"/>
+    <many-to-one name="lega" class="model.Lega">
+    <column name="idLega" not-null="true"></column>
+    </many-to-one>
+    <set name="giocatori" table="SQUADRE_GIOCATORI" inverse="false" lazy="true" fetch="select" cascade="all">
+      <key column="idsquadra"/>
+      <many-to-many column="idgiocatore" class="model.Giocatore"></many-to-many>
+    </set>
+  </class>
+</hibernate-mapping>

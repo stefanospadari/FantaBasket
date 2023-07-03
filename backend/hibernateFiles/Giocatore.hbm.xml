@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.Giocatore" table="giocatori">
+    <id name="id" column="idgiocatore" />
+    <property name="nome" column="nome"/>
+    <property name="cognome" column="cognome"/>
+    <property name="squadraReale" column="squadrareale"/>
+    <property name="dataDiNascita" column="datadinascita"/>
+    <property name="Ruolo" column="ruolo">
+        <type name="org.hibernate.type.EnumType">
+            <param name="enumClass">model.Ruolo</param>
+            <param name="type">12</param>
+        </type>       
+    </property>
+    <set name="squadre" table="SQUADRE_GIOCATORI" inverse="true" lazy="true" fetch="select" cascade="all">
+      <key column="idgiocatore"/>
+      <many-to-many column="idsquadra" class="model.Squadra"></many-to-many>
+    </set>
+    
+  </class>
+</hibernate-mapping>

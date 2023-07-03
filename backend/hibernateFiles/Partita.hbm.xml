@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.Partita" table="partite">
+    <id name="id" column="idpartita"/>
+    <property name="squadraCasa" column="squadracasa"/>
+    <property name="squadraOspite" column="squadraospite"/>
+    <property name="dataOraInizio" column="dataorainizio"/>
+    <many-to-one name="giornata" class="model.GiornataLBA" fetch="select">
+    	<column name="idgiornata"></column>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

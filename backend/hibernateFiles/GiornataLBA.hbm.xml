@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.GiornataLBA" table="giornata">
+    <id name="id" column="idgiornata" />
+    <property name="numeroGiornata" column="numerogiornata"/>
+    <set name="partite" table="partite" inverse="false" lazy="true" fetch="select">
+     <key><column name="idgiornata"></column></key>
+     <one-to-many class="model.Partita"/>
+    </set>
+  </class>
+</hibernate-mapping>

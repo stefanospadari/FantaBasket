@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.PesiStatistiche" table="leghe">
+    <id name="id" column="idlega"/>
+    <property name="pesoPunti" column="pesopunti"/>
+    <property name="pesoRimbalziDifensivi" column="pesoRimbalziDifensivi"/>
+    <property name="pesoRimbalziOffensivi" column="pesoRimbalziOffensivi"/>
+    <property name="pesoAssist" column="pesoAssist"/>
+    <property name="pesoPalleRecuperate" column="pesoPalleRecuperate"/>
+    <property name="pesoStoppate" column="pesoStoppate"/>
+    <property name="pesoPallePerse" column="pesoPallePerse"/>
+    <property name="pesoDoppiaDoppia" column="pesoDoppiaDoppia"/>
+    <property name="pesoTriplaDoppia" column="pesoTriplaDoppia"/>
+    <property name="pesoQuadruplaDoppia" column="pesoQuadruplaDoppia"/>
+    <property name="pesoQuintettoBase" column="pesoQuintettoBase"/>
+    <property name="pesoTripleSegnate3" column="pesoTripleSegnate3"/>
+    <property name="pesoTripleSegnate4" column="pesoTripleSegnate4"/>
+    <property name="pesoTripleSegnate5piu" column="pesoTripleSegnate5piu"/>
+    <property name="pesoTiroSbagliato" column="pesoTiroSbagliato"/>
+    <property name="pesoTiroLiberoSbagliato" column="pesoTiroLiberoSbagliato"/>
+    <property name="pesoUscitaPerFalli" column="pesoUscitaPerFalli"/>
+    <property name="malus" column="malus"/>
+    <one-to-one name="lega" class="model.Lega"></one-to-one>
+  </class>
+</hibernate-mapping>
+

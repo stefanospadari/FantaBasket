@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.Formazione" table="formazioni">
+    <id name="id" column="idformazione" />
+    <property name="Modulo" column="modulo">
+        <type name="org.hibernate.type.EnumType">
+            <param name="enumClass">model.Modulo</param>
+            <param name="type">12</param>
+        </type>       
+    </property>
+    <many-to-one name="squadra" class="model.Squadra" fetch="select">
+    	<column name="idsquadra"></column>
+    </many-to-one>   
+     <many-to-one name="capitano" class="model.Giocatore" fetch="select">
+    	<column name="idcapitano"></column>
+    </many-to-one>
+    <many-to-one name="titolare2" class="model.Giocatore" fetch="select">
+    	<column name="idtitolare2"></column>
+    </many-to-one>
+    <many-to-one name="titolare3" class="model.Giocatore" fetch="select">
+    	<column name="idtitolare3"></column>
+    </many-to-one>
+    <many-to-one name="titolare4" class="model.Giocatore" fetch="select">
+    	<column name="idtitolare4"></column>
+    </many-to-one>
+    <many-to-one name="titolare5" class="model.Giocatore" fetch="select">
+    	<column name="idtitolare5"></column>
+    </many-to-one>
+    <many-to-one name="sestoUomo" class="model.Giocatore" fetch="select">
+    	<column name="idsestouomo"></column>
+    </many-to-one>
+    <many-to-one name="panchinaro2" class="model.Giocatore" fetch="select">
+    	<column name="idpanchinaro2"></column>
+    </many-to-one>
+    <many-to-one name="panchinaro3" class="model.Giocatore" fetch="select">
+    	<column name="idpanchinaro3"></column>
+    </many-to-one>
+    <many-to-one name="panchinaro4" class="model.Giocatore" fetch="select">
+    	<column name="idpanchinaro4"></column>
+    </many-to-one>
+    <many-to-one name="panchinaro5" class="model.Giocatore" fetch="select">
+    	<column name="idpanchinaro5"></column>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

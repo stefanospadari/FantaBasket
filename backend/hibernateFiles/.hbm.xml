@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"hibernateFiles/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="model.Lega" table="leghe">
+    <id name="id" column="idlega"/>
+    <property name="nome" column="nome"/>
+    <one-to-one name="amministratoreLega" class="model.Utente" cascade="all">
+    </one-to-one>
+  </class>
+</hibernate-mapping>
