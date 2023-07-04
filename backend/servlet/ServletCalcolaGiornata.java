@@ -9,7 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//RICORDARSI DI MAPPARE LA SERVLET AD UN URL IN WEB.XML
+import model.Lega;
+import model.Utente;
+
+/*
+ * Servlet da mappare in:  /calcolaGiornata
+ */
 public class ServletCalcolaGiornata extends HttpServlet
 {
 
@@ -34,9 +39,15 @@ public class ServletCalcolaGiornata extends HttpServlet
     	
     	HttpSession session = request.getSession();
 		Lega lega = (Lega) session.getAttribute("lega");
+		Utente utente = (Utente) session.getAttribute("utente");
+		
+		if(lega.getAmministratoreLega().equals(utente))
+		{
+			// Procurarsi un istanza di CalcolaGiornataController
+			calcolaGiornataController.calcolaGiornata(numeroGiornata, lega);
+		}
     	
-    	// Procurarsi un istanza di CalcolaGiornataController
-    	calcolaGiornataController.calcolaGiornata(numeroGiornata, lega);
+    	
     	
 	} 
 	
