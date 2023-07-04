@@ -102,7 +102,7 @@ public class ServletCreazioneCampionato extends HttpServlet
     		{
     			if (user.getUsername().equals(u))
     			{
-    				esito = creazioneCampionatoController.inserisciSquadra(user, nomeSquadra);
+    				esito = creazioneCampionatoController.inserisciSquadra(user, nomeSquadra, (Lega) session.getAttribute("lega"));
     				break;
     			}
     		}

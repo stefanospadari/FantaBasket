@@ -14,7 +14,7 @@ public interface ICreazioneCampionato
 	void generazioneCalendario(Lega lega);
 	void inserisciPesiStatistiche(Lega lega, PesiStatistiche pesi);
 	Utente verificaUtente(String username);
-	boolean inserisciSquadra(Utente utente, String nomeSquadra);
+	boolean inserisciSquadra(Utente utente, String nomeSquadra, Lega lega);   // ho aggiunto anche la lega
 	void inserisciGiocatori(Squadra squadra, List<Giocatore> giocatori);
 
 }
