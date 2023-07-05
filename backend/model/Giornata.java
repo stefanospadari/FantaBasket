@@ -9,7 +9,7 @@ public class Giornata {
 
 	private int id;
 	private int numeroGiornata;
-	private int calcolabile;
+	private int calcolabile; //1 vero, 0 falso
 	private IGiornataReale giornataReale;
 	private Set<ScontroDiretto> scontriDiretti;
 	

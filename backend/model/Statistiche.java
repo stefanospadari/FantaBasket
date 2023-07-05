@@ -37,8 +37,8 @@ public class Statistiche {
 	private int falli;
 	private int pallePerse;
 	private int triple;
-	private int quintettoBase;
-	private int vittoriaSquadra;
+	private int quintettoBase; //1 vero, 0 falso
+	private int vittoriaSquadra; //1 vero, 0 falso
 	private Giocatore giocatore;
 	private Partita partita;
 	
