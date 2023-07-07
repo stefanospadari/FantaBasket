@@ -10,6 +10,8 @@ import { SettingsComponent } from './menu/settings/settings.component';
 import { SquadraComponent } from './components/squadra/squadra.component';
 import { LoginComponent } from './login/login.component';
 import { InserisciFormazioneComponent } from './menu/formazioni/inserisci-formazione/inserisci-formazione.component';
+import { ModificaPesiComponent } from './menu/settings/modifica-pesi/modifica-pesi.component';
+import { ModificaSquadreComponent } from './menu/settings/modifica-squadre/modifica-squadre.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'home/formazioni', component: FormazioniComponent },
   { path: 'home/formazioni/inserisciFormazione', component: InserisciFormazioneComponent },
   { path: 'home/settings', component: SettingsComponent },
+  { path: 'home/settings/modificaPesi', component: ModificaPesiComponent },
+  { path: 'home/settings/modificaSquadre', component: ModificaSquadreComponent },
   { path: 'home/classifica/squadra', component: SquadraComponent },
   { path: 'home/classifica/squadra/:nome', component: SquadraComponent },
 ];

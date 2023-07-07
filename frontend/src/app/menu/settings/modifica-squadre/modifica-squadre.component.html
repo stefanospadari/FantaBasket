@@ -1,0 +1,28 @@
+<div class="h3 p-2" routerLink=".." ><u>Back</u></div>
+<div class="h1 px-4">Modifica squadre</div>
+<div class="px-5 pt-1 d-flex flex-row">
+    <input id="name" type="text" class="w-100 mx-1" [formControl]="name">
+    <select id="team" class="form-select mx-1" [formControl]="squadra" >
+        <option *ngFor="let s of squadre" [ngValue]="s">
+          {{ s }}
+        </option>
+    </select>
+</div>
+
+<div class="p-4 pt-1">
+    <div id="giocatori" class="mt-3 m-3 border border-1 border-black" >
+        <div *ngFor="let g of giocatori">
+            <app-giocatore [nome]="g.nome" [ruolo]="g.ruolo" [enableMarker]="true" (removeEvent)="removePlayer($event)"
+            *ngIf="show(g.nome)"></app-giocatore>
+        </div>
+    </div>
+</div>
+
+<div class="p-4 pt-1">
+    <div id="all" *ngIf="name.value != ''" class="mt-3 m-3 border border-1 border-black" >
+        <div *ngFor="let g of all">
+            <app-giocatore [nome]="g.nome" [ruolo]="g.ruolo" [enableAdd]="true" (addEvent)="addPlayer($event)"
+            *ngIf="show(g.nome)"></app-giocatore>
+        </div>
+    </div>
+</div>

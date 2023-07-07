@@ -12,7 +12,7 @@
 <div class="p-4 pt-1">
     <div id="giocatori" class="mt-3 m-3 border border-1 border-black" >
         <div *ngFor="let g of giocatori">
-            <app-giocatore [nome]="g.nome" [ruolo]="g.ruolo"
+            <app-giocatore [nome]="g.nome" [ruolo]="g.ruolo" [enableStat]="true"
             *ngIf="show(g.nome)"></app-giocatore>
         </div>
     </div>

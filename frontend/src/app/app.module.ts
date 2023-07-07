@@ -22,6 +22,9 @@ import { FormazioneComponent } from './components/formazione/formazione.componen
 import { TitolareComponent } from './components/titolare/titolare.component';
 import { PanchinaroComponent } from './components/panchinaro/panchinaro.component';
 import { InserisciFormazioneComponent } from './menu/formazioni/inserisci-formazione/inserisci-formazione.component';
+import { ModificaPesiComponent } from './menu/settings/modifica-pesi/modifica-pesi.component';
+import { PesiStatisticheComponent } from './components/pesi-statistiche/pesi-statistiche.component';
+import { ModificaSquadreComponent } from './menu/settings/modifica-squadre/modifica-squadre.component';
 
 
 @NgModule({
@@ -44,6 +47,9 @@ import { InserisciFormazioneComponent } from './menu/formazioni/inserisci-formaz
     TitolareComponent,
     PanchinaroComponent,
     InserisciFormazioneComponent,
+    ModificaPesiComponent,
+    PesiStatisticheComponent,
+    ModificaSquadreComponent,
   ],
   imports: [
     BrowserModule,

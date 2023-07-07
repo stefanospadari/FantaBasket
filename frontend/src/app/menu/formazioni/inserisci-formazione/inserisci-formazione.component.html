@@ -5,7 +5,7 @@
 
 <div class="p-2 d-flex align-items-center">
     <div class="h2">Modulo: </div>
-    <select id="team" class="form-select mx-1 w-25" [formControl]="selected">
+    <select class="form-select mx-1 w-25" [formControl]="selected">
         <option *ngFor="let m of moduli" [ngValue]="m">
           {{ m }}
         </option>
@@ -24,7 +24,7 @@
 
 <div class="p-2 d-flex align-items-center">
     <div class="h4">Capitano: </div>
-    <select id="team" class="form-select mx-2 w-50" [formControl]="capitano">
+    <select class="form-select mx-2 w-50" [formControl]="capitano">
         <option *ngFor="let g of titolari" [ngValue]="g">
           {{ g.nome }}
         </option>
@@ -32,7 +32,7 @@
 </div>
 <div class="p-2 d-flex align-items-center">
     <div class="h4">Sesto uomo: </div>
-    <select id="team" class="form-select mx-2 w-50" [formControl]="sestoUomo">
+    <select class="form-select mx-2 w-50" [formControl]="sestoUomo">
         <ng-container *ngFor="let g of panchina" >
             <option *ngIf="g.nome != 'undefined'" [ngValue]="g">
                 {{ g.nome }}
