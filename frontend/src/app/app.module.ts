@@ -15,8 +15,13 @@ import { SvincolatiComponent } from './menu/svincolati/svincolati.component';
 import { FormazioniComponent } from './menu/formazioni/formazioni.component';
 import { SettingsComponent } from './menu/settings/settings.component';
 import { GiocatoreComponent } from './components/giocatore/giocatore.component';
-import { SquadraComponent } from './menu/classifica/squadra/squadra.component';
+import { SquadraComponent } from './components/squadra/squadra.component';
 import { BarraComponent } from './components/barra/barra.component';
+import { LoginComponent } from './login/login.component';
+import { FormazioneComponent } from './components/formazione/formazione.component';
+import { TitolareComponent } from './components/titolare/titolare.component';
+import { PanchinaroComponent } from './components/panchinaro/panchinaro.component';
+import { InserisciFormazioneComponent } from './menu/formazioni/inserisci-formazione/inserisci-formazione.component';
 
 
 @NgModule({
@@ -34,6 +39,11 @@ import { BarraComponent } from './components/barra/barra.component';
     GiocatoreComponent,
     SquadraComponent,
     BarraComponent,
+    LoginComponent,
+    FormazioneComponent,
+    TitolareComponent,
+    PanchinaroComponent,
+    InserisciFormazioneComponent,
   ],
   imports: [
     BrowserModule,

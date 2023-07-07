@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Squadra } from './squadra/squadra.component';
+import { Squadra } from '../../components/squadra/squadra.component';
 
 @Component({
   selector: 'app-classifica',

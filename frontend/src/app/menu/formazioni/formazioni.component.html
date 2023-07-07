@@ -1,2 +1,15 @@
 <div class="h3 p-2" routerLink=".." ><u>Back</u></div>
 <div class="h1 px-4">Formazione</div>
+<div class="col-12 p-3" style="height: 78%;">
+    <app-formazione 
+    [titolari]="titolari"
+    [panchina]="panchina"
+    [guardie]="guardie"
+    [ali]="ali"
+    [centri]="centri"
+    ></app-formazione>
+</div>
+
+<div class="p-3">
+    <button type="button" routerLink="inserisciFormazione" class="btn btn-primary w-100 d-flex justify-content-center"><div class="h2 m-0">INSERISCI FORMAZIONE!</div></button>
+</div>

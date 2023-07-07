@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-between">
+    <div class="h3 p-2" routerLink=".." ><u>Back</u></div>
+    <button type="button" class="m-4 btn btn-primary float-end d-flex justify-content-center"><div class="h2 m-0">INVIA!</div></button>
+</div>
+
+<div class="p-2 d-flex align-items-center">
+    <div class="h2">Modulo: </div>
+    <select id="team" class="form-select mx-1 w-25" [formControl]="selected">
+        <option *ngFor="let m of moduli" [ngValue]="m">
+          {{ m }}
+        </option>
+    </select>
+</div>
+
+<div class="col-12 p-3" style="height: 65%;">
+    <app-formazione 
+    [titolari]="titolari"
+    [panchina]="panchina"
+    [guardie]="guardie"
+    [ali]="ali"
+    [centri]="centri"
+    ></app-formazione>
+</div>
+
+<div class="p-2 d-flex align-items-center">
+    <div class="h4">Capitano: </div>
+    <select id="team" class="form-select mx-2 w-50" [formControl]="capitano">
+        <option *ngFor="let g of titolari" [ngValue]="g">
+          {{ g.nome }}
+        </option>
+    </select>
+</div>
+<div class="p-2 d-flex align-items-center">
+    <div class="h4">Sesto uomo: </div>
+    <select id="team" class="form-select mx-2 w-50" [formControl]="sestoUomo">
+        <ng-container *ngFor="let g of panchina" >
+            <option *ngIf="g.nome != 'undefined'" [ngValue]="g">
+                {{ g.nome }}
+            </option>
+        </ng-container>
+    </select>
+</div>

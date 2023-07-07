@@ -39,6 +39,8 @@ export class SquadraComponent {
     this.squadra.push(g={nome: "Shavon Shields", ruolo:"A"});
     this.squadra.push(g={nome: "Adrian Banks", ruolo:"G"});
     this.squadra.push(g={nome: "Kyle Hines", ruolo:"C"});
+    this.squadra.push(g={nome: "Derek Willis", ruolo:"A"});
+    this.squadra.push(g={nome: "Jacorey Williams", ruolo:"C"});
 
   }
 

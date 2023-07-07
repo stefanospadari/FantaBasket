@@ -1,0 +1,17 @@
+.field{
+    position: relative;
+    z-index: 0;
+}
+
+.field::before{
+    z-index: -1;
+    position:absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../../../assets/images/field.jpg);
+}
