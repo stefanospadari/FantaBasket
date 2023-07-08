@@ -12,6 +12,7 @@ export class StatisticheComponent {
   giocatori: Giocatore[] = [];
 
   name = new FormControl('');
+  squadra: FormControl= new FormControl();
 
   squadre : string[] = [];
 
@@ -20,12 +21,34 @@ export class StatisticheComponent {
     this.squadre= ["IngegneriadelSoftware", "tutti30L", "idisperati", "miamièscarsa"];
 
     let g : Giocatore;
-    this.giocatori.push(g={nome: "Awadu Abass", ruolo:"A"});
-    this.giocatori.push(g={nome: "Niccolò Melli", ruolo:"C"});
-    this.giocatori.push(g={nome: "Milos Teodosic", ruolo:"G"});
-    this.giocatori.push(g={nome: "Shavon Shields", ruolo:"A"});
-    this.giocatori.push(g={nome: "Adrian Banks", ruolo:"G"});
-    this.giocatori.push(g={nome: "Kyle Hines", ruolo:"C"});
+
+    /*this.all.push(g={nome: "Awadu Abass", ruolo:"A"});
+    this.all.push(g={nome: "Niccolò Melli", ruolo:"C"});
+    this.all.push(g={nome: "Milos Teodosic", ruolo:"G"});
+    this.all.push(g={nome: "Shavon Shields", ruolo:"A"});
+    this.all.push(g={nome: "Adrian Banks", ruolo:"G"});
+    this.all.push(g={nome: "Kyle Hines", ruolo:"C"});*/
+
+    this.squadra.valueChanges.subscribe(selectedValue => {
+
+      //ovviamente qui interroghiamo il server e carichiamo i giocatori di quella squadra
+
+      this.giocatori=[];
+    
+      let g : Giocatore;
+      this.giocatori.push(g={nome: "Awadu Abass", ruolo:"A"});
+      this.giocatori.push(g={nome: "Niccolò Melli", ruolo:"C"});
+      this.giocatori.push(g={nome: "Milos Teodosic", ruolo:"G"});
+      this.giocatori.push(g={nome: "Shavon Shields", ruolo:"A"});
+      this.giocatori.push(g={nome: "Adrian Banks", ruolo:"G"});
+      this.giocatori.push(g={nome: "Kyle Hines", ruolo:"C"});
+
+      /*this.all=[];
+      console.log(this.all);*/
+    
+    })
+
+    this.squadra.setValue(this.squadre[0]);
 
   }
 

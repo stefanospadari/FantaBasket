@@ -32,6 +32,8 @@ export class ModificaSquadreComponent {
 
     this.squadra.valueChanges.subscribe(selectedValue => {
 
+      //ovviamente qui interroghiamo il server e carichiamo i giocatori di quella squadra
+
       this.giocatori=[];
     
       let g : Giocatore;
