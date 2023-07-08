@@ -2,7 +2,12 @@ package model;
 
 public class Utente {
 	private String username;
+	/*
+	 * La password è composta dal salt concatenato all hash della password+salt
+	 * I primi 16 char della stringa convertiti in byte rappresentano il salt 
+	 */
 	private String password;
+	
 	
 	public Utente() {
 		super();
