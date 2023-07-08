@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -19,6 +21,8 @@ public class Lega {
 	public Lega(String nome) {
 		super();
 		this.nome = nome;
+		this.squadre = new HashSet<Squadra>();
+		this.svincolati = new ArrayList<Giocatore>();
 	}
 	public void addSquadra(Squadra squadra) {
 		squadre.add(squadra);

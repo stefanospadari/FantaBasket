@@ -15,9 +15,5 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
-
-
-div#giocatori{
-    max-height: 700px;
+    height: 100vh;
 }

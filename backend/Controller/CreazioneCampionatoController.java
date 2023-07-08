@@ -60,6 +60,7 @@ public class CreazioneCampionatoController implements ICreazioneCampionato{
 			
 			Lega lega = new Lega(nomeLega);
 			lega.setAmministratoreLega(amministratore);
+			lega.setId(leghe.size());
 			
 			session.persist(lega);  //persist della lega
 		
@@ -161,11 +162,15 @@ public class CreazioneCampionatoController implements ICreazioneCampionato{
 	public boolean inserisciSquadra(Utente utente, String nomeSquadra, Lega lega) 
 	{
 		// Il nome della squadra deve essere univoco all'interno della lega
-		for(Squadra s : lega.getSquadre())
+		if(lega.getSquadre() != null)
 		{
-			if(s.getNome().equals(nomeSquadra))
-				return false;
+			for(Squadra s : lega.getSquadre())
+			{
+				if(s.getNome().equals(nomeSquadra))
+					return false;
+			}
 		}
+		
 		
 		Session session = null;
 		Transaction tx = null;
@@ -174,10 +179,14 @@ public class CreazioneCampionatoController implements ICreazioneCampionato{
 			session = HibernateUtil.getSessionFactory().openSession();
 			tx = session.beginTransaction();
 			
-			Squadra newSquadra = new Squadra(utente, nomeSquadra);
-			lega.addSquadra(newSquadra);
+			Query query= session.createQuery("from "+Squadra.class.getSimpleName());			
 			
-			session.persist(lega);  //persist della lega
+			Squadra newSquadra = new Squadra(utente, nomeSquadra);
+			newSquadra.setId(query.list().size());
+			newSquadra.setLega(lega);
+			//lega.addSquadra(newSquadra);
+			
+			session.persist(newSquadra);  //persist della lega
 			
 			tx.commit();
 			session.close();
@@ -219,10 +228,9 @@ public class CreazioneCampionatoController implements ICreazioneCampionato{
 			session = HibernateUtil.getSessionFactory().openSession();
 			tx = session.beginTransaction();
 			
-			for(Giocatore g : giocatori)
-				squadra.aggiungiGiocatore(g);
+			squadra.setGiocatori(new HashSet<>(giocatori));
 			
-			session.persist(squadra);  //persist della squadra
+			session.update(squadra);  //update della squadra
 			
 			tx.commit();
 			session.close();
@@ -253,8 +261,8 @@ public class CreazioneCampionatoController implements ICreazioneCampionato{
 			session = HibernateUtil.getSessionFactory().openSession();
 			tx = session.beginTransaction();
 			
-			lega.setPesiStatistiche(pesi);		
-			session.persist(lega);  //persist della squadra
+			pesi.setId(lega.getId());	
+			session.update(pesi);
 			
 			tx.commit();
 			session.close();
@@ -363,7 +371,7 @@ public class CreazioneCampionatoController implements ICreazioneCampionato{
 			calendario.setCalendario(calendarioCompleto);
 
 			lega.setCalendario(calendario);
-			session.persist(lega);  //persist della lega
+			session.update(lega);  //persist della lega
 			
 			tx.commit();
 			session.close();

@@ -43,5 +43,5 @@ export class FormazioniComponent {
     this.sestoUomo= (g={nome: "Awadu Abass", ruolo:"A"});
 
   } 
-  
+
 }
