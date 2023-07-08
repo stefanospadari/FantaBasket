@@ -42,6 +42,8 @@ export class StatisticheComponent {
       this.giocatori.push(g={nome: "Shavon Shields", ruolo:"A"});
       this.giocatori.push(g={nome: "Adrian Banks", ruolo:"G"});
       this.giocatori.push(g={nome: "Kyle Hines", ruolo:"C"});
+      this.giocatori.push(g={nome: "Derek Willis", ruolo:"A"});
+      this.giocatori.push(g={nome: "Jacorey Williams", ruolo:"C"});
 
       /*this.all=[];
       console.log(this.all);*/

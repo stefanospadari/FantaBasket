@@ -65,5 +65,12 @@ export class InserisciFormazioneComponent {
 
   } 
 
+  /*modalRef: BsModalRef;
+
+  constructor(private modalService: BsModalService) {}
+
+  apriPopUp(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }*/
 
 }
