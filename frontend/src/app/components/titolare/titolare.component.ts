@@ -9,6 +9,7 @@ export class TitolareComponent{
 
   @Input() nome="";
   @Input() ruolo="";
+  @Input() isCapitano: boolean=false;
 
   img="";
 

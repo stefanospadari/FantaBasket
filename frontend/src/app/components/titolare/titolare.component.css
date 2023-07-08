@@ -2,3 +2,11 @@ img {
     width: 120px;
     
 }
+
+#capitano{
+    position: relative;
+    left: -20px;
+    top:-45px;
+    color: red;
+    font-weight: bold;
+}

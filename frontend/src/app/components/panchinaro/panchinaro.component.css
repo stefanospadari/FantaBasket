@@ -2,3 +2,10 @@ img {
     width: 100px;
     
 }
+
+#sestoUomo{
+    position: relative;
+    left: 15px;
+    color: red;
+    font-weight: bold;
+}

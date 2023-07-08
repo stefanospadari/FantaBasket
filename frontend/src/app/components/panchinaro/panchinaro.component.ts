@@ -9,6 +9,7 @@ export class PanchinaroComponent {
 
   @Input() nome="";
   @Input() ruolo="";
+  @Input() isSestoUomo: boolean = false;
 
   img="";
 

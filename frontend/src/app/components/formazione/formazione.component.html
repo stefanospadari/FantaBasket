@@ -1,8 +1,26 @@
 <div class="field h-75 p-3 d-flex flex-column ">
-    <div class="d-flex flex-grow-1 justify-content-center"><app-titolare *ngFor="let g of centri" [nome]="g.nome" [ruolo]="g.ruolo"></app-titolare></div>
-    <div class="d-flex flex-grow-1 justify-content-around"><app-titolare *ngFor="let g of ali" [nome]="g.nome" [ruolo]="g.ruolo"></app-titolare></div>
-    <div class="d-flex flex-grow-1 justify-content-evenly"><app-titolare *ngFor="let g of guardie" [nome]="g.nome" [ruolo]="g.ruolo"></app-titolare></div>
+    <div class="d-flex flex-grow-1 justify-content-center">
+        <app-titolare *ngFor="let g of centri" 
+        [nome]="g.nome" 
+        [ruolo]="g.ruolo" 
+        [isCapitano]="isCapitano(g)">
+        </app-titolare>
+    </div>
+    <div class="d-flex flex-grow-1 justify-content-around">
+        <app-titolare *ngFor="let g of ali" 
+        [nome]="g.nome" 
+        [ruolo]="g.ruolo"
+        [isCapitano]="isCapitano(g)">
+        </app-titolare>
+    </div>
+    <div class="d-flex flex-grow-1 justify-content-evenly">
+        <app-titolare *ngFor="let g of guardie" 
+        [nome]="g.nome" 
+        [ruolo]="g.ruolo"
+        [isCapitano]="isCapitano(g)">
+        </app-titolare>
+    </div>
 </div>
 <div class="pt-2 d-flex justify-content-center">
-    <app-panchinaro *ngFor="let p of panchina" [nome]="p.nome" [ruolo]="p.ruolo"></app-panchinaro>
+    <app-panchinaro *ngFor="let p of panchina" [nome]="p.nome" [ruolo]="p.ruolo" [isSestoUomo]="isSestoUomo(p)"></app-panchinaro>
 </div>
