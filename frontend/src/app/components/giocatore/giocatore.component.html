@@ -3,6 +3,8 @@
     <span class="align-self-center">{{this.nome}}</span>
     <span *ngIf="!enableStat" class="align-self-center fw-bold px-3">{{this.ruolo}}</span>
     <span *ngIf="enableStat" class="align-self-center fw-bold px-3">Stat</span>
-    <img *ngIf="enableMarker" (click)="remove()" src="../../../assets/icone/delete_icon-icons.com_52378.png" class="marker d-flex align-self-center">
-    <img *ngIf="enableAdd" (click)="add()" src="../../../assets/icone/add_icon.png" class="marker d-flex align-self-center">
+    <img *ngIf="enableMarker" (click)="remove()" 
+    src="../../../assets/icone/delete_icon-icons.com_52378.png" class="marker d-flex align-self-center cliccable">
+    <img *ngIf="enableAdd" (click)="add()" 
+    src="../../../assets/icone/add_icon.png" class="marker d-flex align-self-center cliccable">
 </div>

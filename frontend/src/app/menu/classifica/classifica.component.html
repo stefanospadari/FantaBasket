@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let s of squadre" routerLink="squadra/{{s.nome}}" >
-            <td>{{s.nome}}</td>
+            <td class="cliccable">{{s.nome}}</td>
             <td class="text-center">{{s.V}}</td>
             <td class="text-center">{{s.P}}</td>
             <td >{{s.sommaPunteggi}}</td>
