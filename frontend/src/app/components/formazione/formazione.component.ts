@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Giocatore } from 'src/app/components/giocatore/giocatore.component';
 
 @Component({
@@ -18,12 +18,19 @@ export class FormazioneComponent {
   @Input() capitano: Giocatore={nome: "", ruolo:""};
   @Input() sestoUomo: Giocatore={nome: "", ruolo:""};
 
+  @Output() insertEvent = new EventEmitter<Giocatore>();
+
   isCapitano(g: Giocatore){
     return (g.nome == this.capitano.nome && this.capitano.ruolo== g.ruolo);
   }
 
   isSestoUomo(g: Giocatore){
     return (g.nome == this.sestoUomo.nome && this.sestoUomo.ruolo== g.ruolo);
+  }
+
+  onClick(g: Giocatore){
+    console.log(g.nome +" "+g.ruolo)
+    this.insertEvent.emit(g);
   }
 
 }

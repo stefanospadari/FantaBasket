@@ -10,7 +10,7 @@
 </div>
 
 
-<div id="giocatori" class="m-4 border border-1 border-black lista overflow-auto" >
+<div id="giocatori" class="m-4 lista overflow-auto" >
     <div *ngFor="let g of giocatori">
         <app-giocatore [nome]="g.nome" [ruolo]="g.ruolo" [enableStat]="true"
         *ngIf="show(g.nome)"></app-giocatore>

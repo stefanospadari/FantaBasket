@@ -19,6 +19,9 @@
     [guardie]="guardie"
     [ali]="ali"
     [centri]="centri"
+    [capitano]="capitano.value !== null ? capitano.value : { nome: '', ruolo: '' }"
+    [sestoUomo]="sestoUomo.value !== null ? sestoUomo.value : { nome: '', ruolo: '' }"
+    (insertEvent)="inserisciGiocatore($event, template)"
     ></app-formazione>
 </div>
 
@@ -40,19 +43,25 @@
         </ng-container>
     </select>
 </div>
-
-<!--
-<button (click)="apriPopUp(template)">Apri Pop-up</button>
     
-    <ng-template #template>
-      <div class="modal-header">
-        <h4 class="modal-title">Titolo del Pop-up</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Contenuto del Pop-up
-      </div>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title">Seleziona giocatori</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- Contenuto del popup: elenco dei giocatori -->
+    <ul class="p-1">
+      <li *ngFor="let giocatore of giocatori" class="d-flex cursor-pointer" (click)="selectGiocatore(giocatore)">
+        <app-giocatore class="w-100 card card-icon lift" 
+        [nome]="giocatore.nome" 
+        [ruolo]="giocatore.ruolo"
+        *ngIf="giocatore.ruolo==toInsert.ruolo || toInsert.ruolo=='P'"
+        ></app-giocatore>
+      </li>
+    </ul>
+  </div>
 </ng-template>
--->
+

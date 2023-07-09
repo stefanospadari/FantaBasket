@@ -3,24 +3,32 @@
         <app-titolare *ngFor="let g of centri" 
         [nome]="g.nome" 
         [ruolo]="g.ruolo" 
-        [isCapitano]="isCapitano(g)">
+        [isCapitano]="isCapitano(g)"
+        (click)="onClick(g)">
         </app-titolare>
     </div>
     <div class="d-flex flex-grow-1 justify-content-around">
         <app-titolare *ngFor="let g of ali" 
         [nome]="g.nome" 
         [ruolo]="g.ruolo"
-        [isCapitano]="isCapitano(g)">
+        [isCapitano]="isCapitano(g)"
+        (click)="onClick(g)">
         </app-titolare>
     </div>
     <div class="d-flex flex-grow-1 justify-content-evenly">
         <app-titolare *ngFor="let g of guardie" 
         [nome]="g.nome" 
         [ruolo]="g.ruolo"
-        [isCapitano]="isCapitano(g)">
+        [isCapitano]="isCapitano(g)"
+        (click)="onClick(g)">
         </app-titolare>
     </div>
 </div>
-<div class="pt-2 d-flex justify-content-center">
-    <app-panchinaro *ngFor="let p of panchina" [nome]="p.nome" [ruolo]="p.ruolo" [isSestoUomo]="isSestoUomo(p)"></app-panchinaro>
+<div class="pt-2 d-flex justify-content-center" >
+    <app-panchinaro *ngFor="let p of panchina" 
+    [nome]="p.nome" 
+    [ruolo]="p.ruolo" 
+    [isSestoUomo]="isSestoUomo(p)"
+    (click)="onClick(p)"
+    ></app-panchinaro>
 </div>
