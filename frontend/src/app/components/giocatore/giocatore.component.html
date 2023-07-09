@@ -1,8 +1,21 @@
-<div class="bg-white col border border-black d-flex justify-content-between py-2 px-3 w-100" >
+<div class="bg-white col border border-black d-flex justify-content-between py-2 px-3 w-100 giocatore" >
     <img class="rounded-circle align-self-center  bg-secondary bg-opacity-10" src="../../../assets/giocatori/{{this.img | lowercase}}.png">
     <span class="align-self-center">{{this.nome}}</span>
     <span *ngIf="!enableStat" class="align-self-center fw-bold px-3">{{this.ruolo}}</span>
-    <span *ngIf="enableStat" class="align-self-center fw-bold px-3">Stat</span>
+    <span *ngIf="enableStat" class="align-self-center px-3 d-flex flex-row">
+        <div class="d-flex flex-column m-2">
+            <div class="d-flex justify-content-center fw-bold">P</div>
+            <div>{{punti}}</div>
+        </div>
+        <div class="d-flex flex-column m-2">
+            <div class="d-flex justify-content-center fw-bold">A</div>
+            <div>{{assist}}</div>
+        </div>
+        <div class="d-flex flex-column m-2">
+            <div class="d-flex justify-content-center fw-bold">R</div>
+            <div>{{rimbalzi}}</div>
+        </div>
+    </span>
     <img *ngIf="enableMarker" (click)="remove()" 
     src="../../../assets/icone/delete_icon-icons.com_52378.png" class="marker d-flex align-self-center cliccable">
     <img *ngIf="enableAdd" (click)="add()" 
