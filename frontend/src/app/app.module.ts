@@ -38,7 +38,8 @@ import { PanchinaroComponent } from './components/panchinaro/panchinaro.componen
 
 //services
 import { SquadreService } from './services/squadre.service';
-import { StatisticheGiocatoreComponent } from './menu/statistiche/statistiche-giocatore/statistiche-giocatore.component'
+import { StatisticheGiocatoreComponent } from './menu/statistiche/statistiche-giocatore/statistiche-giocatore.component';
+import { RegistrazioneComponent } from './login/registrazione/registrazione.component'
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { StatisticheGiocatoreComponent } from './menu/statistiche/statistiche-gi
     PesiStatisticheComponent,
     ModificaSquadreComponent,
     StatisticheGiocatoreComponent,
+    RegistrazioneComponent,
   ],
   imports: [
     BrowserModule,
