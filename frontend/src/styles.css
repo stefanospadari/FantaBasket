@@ -20,6 +20,7 @@ body{
 
 .lift {
     box-shadow: 0 0.15rem 1.75rem #21283226;
+    cursor: pointer;
     transition:
       transform 0.15s ease-in-out,
       box-shadow 0.15s ease-in-out;
@@ -45,6 +46,7 @@ color: inherit;
 
 .cliccable{
   box-shadow: 0 0.15rem 1.75rem #21283226;
+  cursor: pointer;
   transition:
     transform 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
@@ -58,4 +60,12 @@ color: inherit;
       transform: none;
       box-shadow: 0 0.15rem 1.75rem #21283226;
     }
+}
+
+u {
+  cursor: pointer;
+}
+
+u:hover {
+  color:blue;
 }

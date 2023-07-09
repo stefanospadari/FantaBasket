@@ -81,6 +81,8 @@ export class InserisciFormazioneComponent {
       this.giocatori.push(g={nome: "Kyle Hines", ruolo:"C"});
       this.giocatori.push(g={nome: "Derek Willis", ruolo:"A"});
       this.giocatori.push(g={nome: "Jacorey Williams", ruolo:"C"});
+      this.giocatori.push(g={nome: "Diego Flaccadori", ruolo:"G"});
+      this.giocatori.push(g={nome: "Colbey Ross", ruolo:"G"});
     })
 
     this.selected.setValue(this.moduli[0])
