@@ -1,3 +1,17 @@
-<div class="d-flex justify-content-center align-items-center h-100">
+<div class="col-10 m-5 p-4 border border-black border-4 bg-white">
+    <div class="h2 ">Login</div>
+    <div class="d-flex m-2">
+        <div>Username:</div>
+        <input class="mx-2" [formControl]="username"/>
+    </div>
+    <div class="d-flex m-2">
+        <div>Password:</div>
+        <input type="password" class="mx-2" [formControl]="password"/>
+    </div>
+    <button class="btn btn-primary text-black fw-bold m-2 mx-5 border-black border-2">Login</button>
+    <br>
+    <div class="fw-bold d-flex my-2">Non hai ancora un account? <div class="mx-1 text-primary" routerLink="registrazione"><u>Registrati</u></div></div>
+</div>
+<div class="d-flex justify-content-center">
     <button routerLink="home" type="button" class="btn btn-primary col-3">Get in!</button>
 </div>

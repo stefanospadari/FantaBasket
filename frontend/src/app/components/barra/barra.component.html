@@ -1,9 +1,5 @@
-<table class="table table-bordered border border-1 border-black">
-    <thead class="border border-2 border-black">
-        <tr >
-          <th (click)="onPrevious()"><</th>
-          <th class="h4">{{this.content}}</th>
-          <th (click)="onNext()">></th>
-        </tr>
-    </thead>
-</table>
+<div class="d-flex justify-content-between border border-black border-2 bg-white">
+  <div class="p-0 col-1"><button (click)="onPrevious()" class="w-100 h-100 bg-white"><</button></div>
+  <div class="h4 col-10 d-flex align-items-center justify-content-center p-2 m-0 border border-black">{{this.content}}</div>
+  <div class="p-0 col-1"><button (click)="onNext()" class="w-100 h-100 bg-white">></button></div>
+</div>

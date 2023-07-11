@@ -18,6 +18,10 @@ export class GiocatoreComponent{
   @Input() enableStat: boolean=false;
   @Input() enableMarker: boolean=false;
   @Input() enableAdd: boolean=false;
+
+  @Input() punti: number=0;
+  @Input() assist: number=0;
+  @Input() rimbalzi: number=0;
   
 
   @Output() removeEvent= new EventEmitter<Giocatore>()

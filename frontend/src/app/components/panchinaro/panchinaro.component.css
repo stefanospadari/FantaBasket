@@ -9,3 +9,24 @@ img {
     color: red;
     font-weight: bold;
 }
+
+.panchinaro{
+    border: solid 2px black
+}
+
+.lift {
+    box-shadow: 0 0.15rem 1.75rem #21283226;
+    transition:
+      transform 0.15s ease-in-out,
+      box-shadow 0.15s ease-in-out;
+  
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0.5rem 2rem #21283240;
+      }
+  
+    &:active {
+      transform: none;
+      box-shadow: 0 0.15rem 1.75rem #21283226;
+    }
+}

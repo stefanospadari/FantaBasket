@@ -10,9 +10,15 @@
 </div>
 
 
-<div id="giocatori" class="m-4 border border-1 border-black lista overflow-auto" >
-    <div *ngFor="let g of giocatori">
-        <app-giocatore [nome]="g.nome" [ruolo]="g.ruolo" [enableStat]="true"
-        *ngIf="show(g.nome)"></app-giocatore>
+<div id="giocatori" class="m-4 lista overflow-auto" >
+    <div *ngFor="let s of statistiche" class="cliccable" (click)="visualizzaStatistiche(s.giocatore)">
+        <app-giocatore 
+        [nome]="s.giocatore.nome" 
+        [ruolo]="s.giocatore.ruolo" 
+        [enableStat]="true"
+        [punti]="s.punti"
+        [assist]="s.assist"
+        [rimbalzi]="s.rimbalzi"
+        *ngIf="show(s.giocatore.nome)"></app-giocatore>
     </div>
 </div>

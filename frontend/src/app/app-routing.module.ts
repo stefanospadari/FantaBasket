@@ -12,13 +12,17 @@ import { LoginComponent } from './login/login.component';
 import { InserisciFormazioneComponent } from './menu/formazioni/inserisci-formazione/inserisci-formazione.component';
 import { ModificaPesiComponent } from './menu/settings/modifica-pesi/modifica-pesi.component';
 import { ModificaSquadreComponent } from './menu/settings/modifica-squadre/modifica-squadre.component';
+import { StatisticheGiocatoreComponent } from './menu/statistiche/statistiche-giocatore/statistiche-giocatore.component';
+import { RegistrazioneComponent } from './login/registrazione/registrazione.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
+  { path: 'registrazione', component: RegistrazioneComponent},
   { path: 'home', component: HomeComponent},
   { path: 'home/classifica', component: ClassificaComponent },
   { path: 'home/calendario', component: CalendarioComponent },
   { path: 'home/statistiche', component: StatisticheComponent },
+  { path: 'home/statistiche/:giocatore', component: StatisticheGiocatoreComponent },
   { path: 'home/svincolati', component: SvincolatiComponent },
   { path: 'home/formazioni', component: FormazioniComponent },
   { path: 'home/formazioni/inserisciFormazione', component: InserisciFormazioneComponent },
