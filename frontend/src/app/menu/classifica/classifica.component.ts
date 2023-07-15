@@ -19,8 +19,14 @@ export class ClassificaComponent {
     this.router.navigate(['/su', encodedSquadre]);
   }
 
-  ngOnInit(){
-    let s: Squadra;
-    this.squadre= this.squadreService.getSquadre();
+  ngOnInit() {
+    this.squadreService.getClassifica().subscribe(
+      (squadre: Squadra[]) => {
+        console.log("response: "+squadre)
+        this.squadre = squadre;
+        for(let i=0; i<this.squadre.length; i++)
+          console.log(squadre[i]);
+      }
+    );
   }
 }

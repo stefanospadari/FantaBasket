@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -72,6 +73,7 @@ import { RegistrazioneComponent } from './login/registrazione/registrazione.comp
     AppRoutingModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
+    HttpClientModule
   ],
   providers: [SquadreService],
   bootstrap: [AppComponent]

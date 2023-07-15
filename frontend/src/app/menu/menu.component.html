@@ -29,7 +29,7 @@
                 [tipo]="formazioni"
             ></app-icona>
         </div>
-        <div class="col-4 m-3 p-4">
+        <div class="col-4 m-3 p-4" *ngIf="ruolo=='AmministratoreLega'">
             <app-icona 
                 [tipo]="settings"
             ></app-icona>

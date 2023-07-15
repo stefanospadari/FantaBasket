@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RuoloService } from '../services/ruolo.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
+  ruolo: string="";
+
+  constructor(private ruoloService: RuoloService) {}
+
+  ngOnInit() {
+    this.ruolo = this.ruoloService.getRuolo();
+    console.log("ruolo: '" + this.ruolo + "'");
+  }
 
 }

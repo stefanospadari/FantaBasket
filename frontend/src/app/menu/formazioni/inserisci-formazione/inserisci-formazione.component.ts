@@ -16,6 +16,8 @@ export class InserisciFormazioneComponent {
     this.modalRef = new BsModalRef();
   }
 
+  isDisabled:boolean= true;
+
   moduli :string[]=["2-2-1", "1-2-2", "2-1-2", "1-3-1", "3-1-1"]
 
   selected = new FormControl('');
@@ -162,6 +164,14 @@ export class InserisciFormazioneComponent {
 
     //nascondiamo il pop-up
     this.modalRef.hide();
+
+    if(this.titolari.length==5 && this.panchina.length==5 &&
+      this.capitano.value?.nome!= "undefined" && this.sestoUomo.value?.nome != "undefined"){
+
+        this.isDisabled=false;
+        console.log("formazione completa");
+    }
+      
   }
 
   inserisciGiocatore(g: Giocatore, template: TemplateRef<any>){

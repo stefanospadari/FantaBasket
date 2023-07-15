@@ -8,7 +8,8 @@
         <div>Password:</div>
         <input type="password" class="mx-2" [formControl]="password"/>
     </div>
-    <button class="btn btn-primary text-black fw-bold m-2 mx-5 border-black border-2">Login</button>
+    <button class="btn btn-primary text-black fw-bold m-2 mx-5 border-black border-2"
+    (click)="login()">Login</button>
     <br>
     <div class="fw-bold d-flex my-2">Non hai ancora un account? <div class="mx-1 text-primary" routerLink="registrazione"><u>Registrati</u></div></div>
 </div>

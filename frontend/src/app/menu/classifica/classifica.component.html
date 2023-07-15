@@ -14,10 +14,10 @@
         <tbody>
           <tr *ngFor="let s of squadre" routerLink="squadra/{{s.nome}}" >
             <td class="cliccable">{{s.nome}}</td>
-            <td class="text-center">{{s.V}}</td>
-            <td class="text-center">{{s.P}}</td>
+            <td class="text-center">{{s.partiteVinte}}</td>
+            <td class="text-center">{{s.partitePerse}}</td>
             <td >{{s.sommaPunteggi}}</td>
-            <td class="fw-bold text-center">{{s.PC}}</td>
+            <td class="fw-bold text-center">{{s.puntiClassifica}}</td>
           </tr>
         </tbody>
       </table>
