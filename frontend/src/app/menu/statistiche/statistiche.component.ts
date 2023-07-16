@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Giocatore } from 'src/app/components/giocatore/giocatore.component';
+import { Squadra } from 'src/app/components/squadra/squadra.component';
+import { SquadreService } from 'src/app/services/squadre.service';
 
 export interface Statistiche {
   giocatore: Giocatore;
@@ -27,17 +30,33 @@ export class StatisticheComponent {
   name = new FormControl('');
   squadra: FormControl= new FormControl();
 
-  squadre : string[] = [];
+  squadre : Squadra[] = [];
 
   statistiche: Statistiche[]= [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private squadreService: SquadreService, private spinner: NgxSpinnerService){}
 
   ngOnInit(){
 
-    this.squadre= ["IngegneriadelSoftware", "tutti30L", "idisperati", "miamièscarsa"];
+    this.spinner.show();
+    /*this.squadreService.getClassifica().subscribe(
+      (squadre: Squadra[]) => {
+        
+        console.log("response: "+squadre)
+        this.squadre = squadre;
+        for(let i=0; i<this.squadre.length; i++)
+          console.log(squadre[i]);
 
-    let g : Giocatore;
+        this.spinner.hide();
+      }
+    );*/
+
+    this.squadre= this.squadreService.getSquadre();
+    console.log("squadre: "+ this.squadre);
+    for(let i=0;i<this.squadre.length; i++)
+      console.log(this.squadre[i]);
+
+    
 
     /*this.all.push(g={nome: "Awadu Abass", ruolo:"A"});
     this.all.push(g={nome: "Niccolò Melli", ruolo:"C"});
@@ -53,7 +72,22 @@ export class StatisticheComponent {
       this.giocatori=[];
     
       let g : Giocatore;
-      this.giocatori.push(g={nome: "Awadu Abass", ruolo:"A"});
+      
+      this.spinner.show();
+      let s: Squadra= this.squadra.value;
+      this.squadreService.getSquadra(s.nome).subscribe(
+        (data: Squadra) => {
+          console.log(data.giocatori); // Stampa la risposta ricevuta dal server come un'istanza di Squadra
+          for(let i=0; i<data.giocatori.length; i++) {
+            console.log(data.giocatori[i].nome +" "+ data.giocatori[i].cognome + " "+ data.giocatori[i].ruolo);
+            this.giocatori.push(g={nome: data.giocatori[i].nome +" "+ data.giocatori[i].cognome, ruolo: data.giocatori[i].ruolo[0]})
+            console.log(this.giocatori[i]);
+          }
+          this.spinner.hide();
+        }
+      );
+      
+      /*this.giocatori.push(g={nome: "Awadu Abass", ruolo:"A"});
       this.statistiche.push({giocatore:g, punti:12.3, assist:2.1, rimbalzi:15.4});
       this.giocatori.push(g={nome: "Niccolò Melli", ruolo:"C"});
       this.statistiche.push({giocatore:g, punti:12.3, assist:2.1, rimbalzi:15.4});

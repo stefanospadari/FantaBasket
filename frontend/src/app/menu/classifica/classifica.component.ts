@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Squadra } from '../../components/squadra/squadra.component';
 import { Router } from '@angular/router';
 import { SquadreService } from 'src/app/services/squadre.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-classifica',
@@ -12,7 +14,7 @@ export class ClassificaComponent {
 
   squadre: Squadra[]= [];
 
-  constructor(private router: Router, private squadreService: SquadreService) {}
+  constructor(private router: Router, private squadreService: SquadreService, private spinner: NgxSpinnerService) {}
 
   navigateToChild() {
     const encodedSquadre = encodeURIComponent(JSON.stringify(this.squadre));
@@ -20,13 +22,17 @@ export class ClassificaComponent {
   }
 
   ngOnInit() {
+    this.spinner.show();
     this.squadreService.getClassifica().subscribe(
       (squadre: Squadra[]) => {
         console.log("response: "+squadre)
         this.squadre = squadre;
         for(let i=0; i<this.squadre.length; i++)
           console.log(squadre[i]);
+
+          this.spinner.hide();
       }
     );
+    
   }
 }

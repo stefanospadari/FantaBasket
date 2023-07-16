@@ -4,6 +4,7 @@ import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { RuoloService } from '../services/ruolo.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,14 @@ export class LoginComponent {
 
   ruolo:string="";
 
-  constructor(private router: Router, private loginService: LoginService, private ruoloService: RuoloService) {}
+  constructor(private router: Router, private loginService: LoginService, private ruoloService: RuoloService, private spinner: NgxSpinnerService) {}
 
   username= new FormControl();
   password= new FormControl();
   loginSubscription: Subscription | undefined;
 
   login(){
+    this.spinner.show();
     this.loginSubscription = this.loginService.effettuaLogin(this.username.value, this.password.value)
     .subscribe(
       (response) => {
@@ -30,6 +32,7 @@ export class LoginComponent {
           this.ruoloService.setRuolo(this.ruolo);
           this.router.navigate(['/home']);
         }
+        this.spinner.hide();
       }
     );
 

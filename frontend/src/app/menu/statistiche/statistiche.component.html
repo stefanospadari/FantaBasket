@@ -4,7 +4,7 @@
     <input id="name" type="text" class="w-100 mx-1" [formControl]="name">
     <select id="team" class="form-select mx-1" [formControl]="squadra" >
         <option *ngFor="let s of squadre" [ngValue]="s">
-          {{ s }}
+          {{ s.nome }}
         </option>
     </select>
 </div>

@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Giocatore } from 'src/app/components/giocatore/giocatore.component';
 import { EntryGiocatore, SquadreService } from 'src/app/services/squadre.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 export interface Squadra{
   nome: string;
@@ -29,7 +30,7 @@ export class SquadraComponent {
 
   squadra: Giocatore[] = [];
 
-  constructor(private route: ActivatedRoute, private squadreService: SquadreService){}
+  constructor(private route: ActivatedRoute, private squadreService: SquadreService, private spinner: NgxSpinnerService){}
 
   ngOnInit(){
 
@@ -40,6 +41,7 @@ export class SquadraComponent {
       this.squadra=[];
       let g : Giocatore;
 
+      this.spinner.show();
       this.squadreService.getSquadra(this.nome.value).subscribe(
         (data: Squadra) => {
           console.log(data.giocatori); // Stampa la risposta ricevuta dal server come un'istanza di Squadra
@@ -48,6 +50,7 @@ export class SquadraComponent {
             this.squadra.push(g={nome: data.giocatori[i].nome +" "+ data.giocatori[i].cognome, ruolo: data.giocatori[i].ruolo[0]})
             console.log(this.squadra[i]);
           }
+          this.spinner.hide();
         }
       );
       

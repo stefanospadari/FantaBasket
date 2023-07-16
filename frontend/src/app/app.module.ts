@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -73,7 +76,9 @@ import { RegistrazioneComponent } from './login/registrazione/registrazione.comp
     AppRoutingModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule.forRoot({ type: 'pacman' }),
+    BrowserAnimationsModule
   ],
   providers: [SquadreService],
   bootstrap: [AppComponent]
