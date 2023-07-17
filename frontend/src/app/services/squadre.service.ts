@@ -52,6 +52,8 @@ export class SquadreService {
     return this.http.get<Squadra>(this.url + '?request=squadra&nomeSquadra=' + nome);
   }
 
+  
+
   getSquadre(): Squadra[] {
     return this.squadre;
   }

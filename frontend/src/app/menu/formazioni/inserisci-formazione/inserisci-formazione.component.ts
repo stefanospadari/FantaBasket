@@ -2,6 +2,10 @@ import { Component, TemplateRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Giocatore } from 'src/app/components/giocatore/giocatore.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { SquadreService } from 'src/app/services/squadre.service';
+import { FormazioneService } from 'src/app/services/formazione.service';
+import { Squadra } from 'src/app/components/squadra/squadra.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-inserisci-formazione',
@@ -12,7 +16,8 @@ export class InserisciFormazioneComponent {
 
   modalRef: BsModalRef;
 
-  constructor(private modalService: BsModalService) {
+  constructor(private modalService: BsModalService, private squadraService: SquadreService, 
+    private formazioneService: FormazioneService, private spinner: NgxSpinnerService) {
     this.modalRef = new BsModalRef();
   }
 
@@ -74,17 +79,22 @@ export class InserisciFormazioneComponent {
       for(var i=0; i<5; i++)
         this.panchina.push(g={nome: "undefined", ruolo:"P"})
 
+
       this.giocatori=[];
-      this.giocatori.push(g={nome: "Awadu Abass", ruolo:"A"});
-      this.giocatori.push(g={nome: "Niccolò Melli", ruolo:"C"});
-      this.giocatori.push(g={nome: "Milos Teodosic", ruolo:"G"});
-      this.giocatori.push(g={nome: "Shavon Shields", ruolo:"A"});
-      this.giocatori.push(g={nome: "Adrian Banks", ruolo:"G"});
-      this.giocatori.push(g={nome: "Kyle Hines", ruolo:"C"});
-      this.giocatori.push(g={nome: "Derek Willis", ruolo:"A"});
-      this.giocatori.push(g={nome: "Jacorey Williams", ruolo:"C"});
-      this.giocatori.push(g={nome: "Diego Flaccadori", ruolo:"G"});
-      this.giocatori.push(g={nome: "Colbey Ross", ruolo:"G"});
+      
+      this.spinner.show();
+      this.squadraService.getSquadra("SteTeam").subscribe(
+        (data: Squadra) => {
+          console.log(data.giocatori); // Stampa la risposta ricevuta dal server come un'istanza di Squadra
+          for(let i=0; i<data.giocatori.length; i++) {
+            console.log(data.giocatori[i].nome +" "+ data.giocatori[i].cognome + " "+ data.giocatori[i].ruolo);
+            this.giocatori.push(g={nome: data.giocatori[i].nome +" "+ data.giocatori[i].cognome, ruolo: data.giocatori[i].ruolo[0]})
+            console.log(this.giocatori[i]);
+          }
+          this.spinner.hide();
+        }
+        );
+
     })
 
     this.selected.setValue(this.moduli[0])
@@ -165,6 +175,7 @@ export class InserisciFormazioneComponent {
     //nascondiamo il pop-up
     this.modalRef.hide();
 
+    console.log(""+this.titolari.length + this.panchina.length + this.capitano.value?.nome + this.sestoUomo.value?.nome)
     if(this.titolari.length==5 && this.panchina.length==5 &&
       this.capitano.value?.nome!= "undefined" && this.sestoUomo.value?.nome != "undefined"){
 
@@ -177,5 +188,19 @@ export class InserisciFormazioneComponent {
   inserisciGiocatore(g: Giocatore, template: TemplateRef<any>){
     this.modalRef = this.modalService.show(template);
     this.toInsert=g;
+  }
+
+  inviaFormazione() {
+    this.formazioneService.setTitolari(this.titolari);
+    this.formazioneService.setPanchina(this.panchina);
+    this.formazioneService.setCentri(this.centri);
+    this.formazioneService.setAli(this.ali);
+    this.formazioneService.setGuardie(this.guardie);
+    if (this.capitano.value !== null) {
+      this.formazioneService.setSestoUomo(this.capitano.value);
+    }
+    if (this.sestoUomo.value !== null) {
+      this.formazioneService.setSestoUomo(this.sestoUomo.value);
+    }
   }
 }

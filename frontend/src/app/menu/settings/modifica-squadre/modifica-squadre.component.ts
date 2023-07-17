@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Giocatore } from 'src/app/components/giocatore/giocatore.component';
+import { Squadra } from 'src/app/components/squadra/squadra.component';
+import { EntryGiocatore, SquadreService } from 'src/app/services/squadre.service';
+import { SvincolatiService } from 'src/app/services/svincolati.service';
 
 @Component({
   selector: 'app-modifica-squadre',
@@ -10,25 +14,32 @@ import { Giocatore } from 'src/app/components/giocatore/giocatore.component';
 export class ModificaSquadreComponent {
 
   giocatori: Giocatore[] = [];
-  all: Giocatore[]= []
+  svincolati: Giocatore[]= []
 
   name = new FormControl('');
   squadra = new FormControl();
 
-  squadre : string[] = [];
+  squadre : Squadra[] = [];
+
+  constructor(private svincolatiService: SvincolatiService, private squadraService: SquadreService, private spinner: NgxSpinnerService){}
 
   ngOnInit(){
 
-    this.squadre= ["IngegneriadelSoftware", "tutti30L", "idisperati", "miamièscarsa"];
-
+    this.squadre= this.squadraService.getSquadre();
     let g : Giocatore;
 
-    this.all.push(g={nome: "Awadu Abass", ruolo:"A"});
-    this.all.push(g={nome: "Niccolò Melli", ruolo:"C"});
-    this.all.push(g={nome: "Milos Teodosic", ruolo:"G"});
-    this.all.push(g={nome: "Shavon Shields", ruolo:"A"});
-    this.all.push(g={nome: "Adrian Banks", ruolo:"G"});
-    this.all.push(g={nome: "Kyle Hines", ruolo:"C"});
+    this.spinner.show();
+    this.svincolatiService.getSvincolati().subscribe(
+      (giocatori: EntryGiocatore[]) => {
+        console.log(giocatori); // Stampa la risposta ricevuta dal server come un'istanza di Squadra
+        for(let i=0; i<giocatori.length; i++) {
+          console.log(giocatori[i].nome +" "+ giocatori[i].cognome + " "+ giocatori[i].ruolo);
+          this.svincolati.push(g={nome: giocatori[i].nome +" "+ giocatori[i].cognome, ruolo: giocatori[i].ruolo[0]})
+          console.log(this.svincolati[i]);
+        }
+        this.spinner.hide();
+      }
+    );
 
     this.squadra.valueChanges.subscribe(selectedValue => {
 
@@ -37,15 +48,20 @@ export class ModificaSquadreComponent {
       this.giocatori=[];
     
       let g : Giocatore;
-      this.giocatori.push(g={nome: "Awadu Abass", ruolo:"A"});
-      this.giocatori.push(g={nome: "Niccolò Melli", ruolo:"C"});
-      this.giocatori.push(g={nome: "Milos Teodosic", ruolo:"G"});
-      this.giocatori.push(g={nome: "Shavon Shields", ruolo:"A"});
-      this.giocatori.push(g={nome: "Adrian Banks", ruolo:"G"});
-      this.giocatori.push(g={nome: "Kyle Hines", ruolo:"C"});
 
-      this.all=[];
-      console.log(this.all);
+      this.spinner.show();
+      this.squadraService.getSquadra(this.squadra.value.nome).subscribe(
+        (data: Squadra) => {
+          console.log(data.giocatori); // Stampa la risposta ricevuta dal server come un'istanza di Squadra
+          for(let i=0; i<data.giocatori.length; i++) {
+            console.log(data.giocatori[i].nome +" "+ data.giocatori[i].cognome + " "+ data.giocatori[i].ruolo);
+            this.giocatori.push(g={nome: data.giocatori[i].nome +" "+ data.giocatori[i].cognome, ruolo: data.giocatori[i].ruolo[0]})
+            console.log(this.giocatori[i]);
+          }
+          this.spinner.hide();
+        }
+      );
+      
     
     })
 
@@ -65,7 +81,7 @@ export class ModificaSquadreComponent {
     console.log(toEliminate);
     for(let i=0; i<this.giocatori.length; i++){
       if (this.giocatori[i].nome== toEliminate.nome && this.giocatori[i].ruolo== toEliminate.ruolo){
-        this.all.push(this.giocatori[i]);
+        this.svincolati.push(this.giocatori[i]);
         this.giocatori.splice(i, 1);
       }
         
@@ -76,8 +92,8 @@ export class ModificaSquadreComponent {
 
     this.giocatori.push(toEliminate);
     for(let i=0; i<this.giocatori.length; i++){
-      if (this.all[i].nome== toEliminate.nome && this.all[i].ruolo== toEliminate.ruolo){
-        this.all.splice(i, 1);
+      if (this.svincolati[i].nome== toEliminate.nome && this.svincolati[i].ruolo== toEliminate.ruolo){
+        this.svincolati.splice(i, 1);
       }
         
     }

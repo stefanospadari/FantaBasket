@@ -1,5 +1,5 @@
 <div class="bg-white col border border-black d-flex justify-content-between py-2 px-3 w-100 giocatore" >
-    <img class="rounded-circle align-self-center  bg-secondary bg-opacity-10" src="../../../assets/giocatori/{{this.img | lowercase}}.png">
+    <img class="rounded-circle align-self-center  bg-secondary bg-opacity-10" src="../../../assets/giocatori/{{this.img | lowercase}}.png" alt="giocatore">
     <span class="align-self-center">{{this.nome}}</span>
     <span *ngIf="!enableStat" class="align-self-center fw-bold px-3">{{this.ruolo}}</span>
     <span *ngIf="enableStat" class="align-self-center px-3 d-flex flex-row">

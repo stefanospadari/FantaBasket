@@ -69,7 +69,7 @@ export class StatisticheComponent {
 
       //ovviamente qui interroghiamo il server e carichiamo i giocatori di quella squadra
 
-      this.giocatori=[];
+      this.statistiche=[];
     
       let g : Giocatore;
       
@@ -77,12 +77,14 @@ export class StatisticheComponent {
       let s: Squadra= this.squadra.value;
       this.squadreService.getSquadra(s.nome).subscribe(
         (data: Squadra) => {
-          console.log(data.giocatori); // Stampa la risposta ricevuta dal server come un'istanza di Squadra
+          //console.log(data.giocatori); // Stampa la risposta ricevuta dal server come un'istanza di Squadra
           for(let i=0; i<data.giocatori.length; i++) {
             console.log(data.giocatori[i].nome +" "+ data.giocatori[i].cognome + " "+ data.giocatori[i].ruolo);
-            this.giocatori.push(g={nome: data.giocatori[i].nome +" "+ data.giocatori[i].cognome, ruolo: data.giocatori[i].ruolo[0]})
+            g={nome: data.giocatori[i].nome +" "+ data.giocatori[i].cognome, ruolo: data.giocatori[i].ruolo[0]};
+            this.statistiche.push({giocatore:g, punti:12.3, assist:2.1, rimbalzi:15.4})
             console.log(this.giocatori[i]);
           }
+          console
           this.spinner.hide();
         }
       );

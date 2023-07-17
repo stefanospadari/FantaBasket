@@ -1,6 +1,7 @@
 <div class="d-flex justify-content-between">
     <div class="h3 p-2" routerLink=".." ><u>Back</u></div>
-    <button type="button" class="m-4 btn btn-primary float-end d-flex justify-content-center" [disabled]="isDisabled">
+    <button type="button" class="m-4 btn btn-primary float-end d-flex justify-content-center" [disabled]="isDisabled"
+    (click)="inviaFormazione()" routerLink="..">
       <div class="h2 m-0">INVIA!</div>
     </button>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Giocatore } from 'src/app/components/giocatore/giocatore.component';
+import { FormazioneService } from 'src/app/services/formazione.service';
 
 @Component({
   selector: 'app-formazioni',
@@ -18,30 +19,18 @@ export class FormazioniComponent {
   capitano: Giocatore={nome: "", ruolo:""};
   sestoUomo: Giocatore={nome: "", ruolo:""};
 
-  ngOnInit(){
-    let g: Giocatore;
-    this.centri.push(g={nome: "Niccolò Melli", ruolo:"C"});
-    this.titolari.push(g={nome: "Niccolò Melli", ruolo:"C"});
+  constructor(private formazioneService: FormazioneService){}
 
-    this.ali.push(g={nome: "Shavon Shields", ruolo:"A"});
-    this.ali.push(g={nome: "Tornike Shengelia", ruolo:"A"});
-    this.titolari.push(g={nome: "Shavon Shields", ruolo:"A"});
-    this.titolari.push(g={nome: "Tornike Shengelia", ruolo:"A"});
+  ngOnInit() {
+    this.titolari = this.formazioneService.getTitolari();
+    this.panchina = this.formazioneService.getPanchina();
+    this.centri = this.formazioneService.getCentri();
+    this.ali = this.formazioneService.getAli();
+    this.guardie = this.formazioneService.getGuardie();
+    this.capitano = this.formazioneService.getCapitano();
+    this.sestoUomo = this.formazioneService.getSestoUomo();
 
-    this.guardie.push(g={nome: "Milos Teodosic", ruolo:"G"});
-    this.guardie.push(g={nome: "Diego Flaccadori", ruolo:"G"});
-    this.titolari.push(g={nome: "Milos Teodosic", ruolo:"G"});
-    this.titolari.push(g={nome: "Diego Flaccadori", ruolo:"G"});
-
-    this.panchina.push(g={nome: "Awadu Abass", ruolo:"A"});
-    this.panchina.push(g={nome: "Adrian Banks", ruolo:"G"});
-    this.panchina.push(g={nome: "Colbey Ross", ruolo:"G"});
-    this.panchina.push(g={nome: "Derek Willis", ruolo:"A"});
-    this.panchina.push(g={nome: "Jacorey Williams", ruolo:"C"});
-
-    this.capitano= (g={nome: "Milos Teodosic", ruolo:"G"});
-    this.sestoUomo= (g={nome: "Awadu Abass", ruolo:"A"});
-
-  } 
+    console.log(this.titolari);
+  }
 
 }
