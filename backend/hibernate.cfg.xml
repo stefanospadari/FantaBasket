@@ -9,8 +9,8 @@
     <property name="connection.driver_class">com.ibm.db2.jcc.DB2Driver</property>
     <property name="connection.url">jdbc:db2://diva.deis.unibo.it:50000/tw_stud</property>
     
-    <property name="connection.username">A0998232</property>
-    <property name="connection.password">dirimpettaio1234</property>
+    <property name="connection.username">#Inserisci username</property>
+    <property name="connection.password">#inserisci password</property>
     <property name="connection.pool_size">1</property>
     
     <property name="dialect">org.hibernate.dialect.DB2Dialect</property>
