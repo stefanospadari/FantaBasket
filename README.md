@@ -1,5 +1,9 @@
 # FantaBasket
 
+<p align="center">
+  <img src="images/favicon.ico" width="120">
+</p>
+
 Software engineering project developed by **Stefano Spadari**, **Luca Cimino** and **Federico Mingarelli** for the *Ingegneria del Software T* course during the Bachelor's Degree in Computer Engineering at the University of Bologna.
 
 FantaBasket is a web application designed to manage fantasy basketball leagues, where users build teams composed of real players and compete against each other based on the real-world performances of those players during the championship season.
